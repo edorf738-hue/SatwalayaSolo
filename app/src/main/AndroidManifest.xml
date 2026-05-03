@@ -12,19 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Satwalaya">
         <activity
-            android:name=".BookingConfirmedActivity"
+            android:name=".data.BookingDatabaseHelper"
             android:exported="false" />
         <activity
-            android:name=".PetHotelBookingActivity"
+            android:name=".ui.booking.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.booking.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.booking.PickupBookingActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.booking.GroomingBookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.booking.BookingConfirmedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.booking.PetHotelBookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

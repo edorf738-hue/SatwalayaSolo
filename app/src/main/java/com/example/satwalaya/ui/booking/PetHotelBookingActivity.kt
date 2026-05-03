@@ -1,12 +1,16 @@
-package com.example.satwalaya
+package com.example.satwalaya.ui.booking
 
-import android.os.Bundle
 import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.satwalaya.R
+import com.example.satwalaya.data.Booking
+import com.example.satwalaya.data.BookingStore
 import com.example.satwalaya.databinding.ActivityPetHotelBookingBinding
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
@@ -74,7 +78,14 @@ class PetHotelBookingActivity : AppCompatActivity() {
                 )
             )
 
-            val intent = Intent(this, BookingConfirmedActivity::class.java)
+            val intent = Intent(this, PaymentActivity::class.java)
+            intent.putExtra("serviceName", "Hotel Service")
+            intent.putExtra("petName", petName)
+            intent.putExtra("petType", petType)
+            intent.putExtra("roomType", selectedRoom)
+            intent.putExtra("startDate", dateFormat.format(Date(checkInMillis)))
+            intent.putExtra("endDate", dateFormat.format(Date(checkOutMillis)))
+            intent.putExtra("nights", totalNights)
             intent.putExtra("totalPrice", totalPrice)
             startActivity(intent)
             finish()
@@ -92,7 +103,9 @@ class PetHotelBookingActivity : AppCompatActivity() {
             } else {
                 totalNights = TimeUnit.MILLISECONDS.toDays(checkOutMillis - checkInMillis).toInt()
                 binding.nightInfoText.text =
-                    "$totalNights night • ${dateFormat.format(Date(checkInMillis))} - ${dateFormat.format(Date(checkOutMillis))}"
+                    "$totalNights night • ${dateFormat.format(Date(checkInMillis))} - ${dateFormat.format(
+                        Date(checkOutMillis)
+                    )}"
 
                 updatePriceSummary()
             }
@@ -156,9 +169,9 @@ class PetHotelBookingActivity : AppCompatActivity() {
     }
 
     private fun getMillis(year: Int, month: Int, day: Int): Long {
-        val calendar = java.util.Calendar.getInstance()
+        val calendar = Calendar.getInstance()
         calendar.set(year, month, day, 0, 0, 0)
-        calendar.set(java.util.Calendar.MILLISECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
         return calendar.timeInMillis
     }
 }

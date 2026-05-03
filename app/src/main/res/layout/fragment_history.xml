@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="#FFFDF8"
     android:orientation="vertical"
-    android:paddingBottom="110dp">
+    android:paddingBottom="0dp">
 
     <!-- History Header -->
     <LinearLayout
@@ -136,140 +136,24 @@
     </LinearLayout>
 
     <!-- Booking List Container -->
-    <LinearLayout
-        android:id="@+id/bookingListContainer"
+    <ScrollView
+        android:id="@+id/bookingScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        android:layout_marginTop="16dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:visibility="gone">
 
-        <!-- BOOKING CARD -->
         <LinearLayout
-            android:id="@+id/bookingCard"
+            android:id="@+id/bookingListContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/bg_profile_card"
-            android:padding="20dp"
-            android:layout_marginBottom="16dp">
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp" />
 
-            <!-- TOP ROW -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <!-- ICON -->
-                <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_icon_orange"
-                    android:gravity="center"
-                    android:text="🏨"
-                    android:textSize="18sp"/>
-
-                <!-- TITLE -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tvServiceName"
-                        android:text="Hotel Service"
-                        android:textStyle="bold"
-                        android:textSize="16sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tvPet"
-                        android:text="eg (cat)"
-                        android:textSize="13sp"
-                        android:textColor="#888888"/>
-                </LinearLayout>
-
-                <!-- STATUS -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvStatus"
-                    android:text="Confirmed"
-                    android:textSize="12sp"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="4dp"
-                    android:background="@drawable/bg_status_green"/>
-            </LinearLayout>
-
-            <!-- DATE -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvDate"
-                android:layout_marginTop="12dp"
-                android:text="📅 Apr 28 - Apr 29, 2026"
-                android:textSize="13sp"
-                android:textColor="#888888"/>
-
-            <!-- DIVIDER -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="12dp"
-                android:background="#EEEEEE"/>
-
-            <!-- PRICE + BUTTON -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total Price"
-                        android:textSize="12sp"
-                        android:textColor="#888888"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tvPrice"
-                        android:text="Rp 50.000"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#FF6B00"/>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btnCancel"
-                    android:text="Cancel"
-                    android:textColor="#FF3B30"
-                    android:textSize="13sp"
-                    android:paddingHorizontal="14dp"
-                    android:paddingVertical="6dp"
-                    android:background="@drawable/bg_cancel_button"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

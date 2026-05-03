@@ -1,10 +1,13 @@
-package com.example.satwalaya
+package com.example.satwalaya.ui.history
 
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.satwalaya.R
+import com.example.satwalaya.data.BookingDatabaseHelper
 import com.example.satwalaya.databinding.FragmentHistoryBinding
 
 class HistoryFragment : Fragment(R.layout.fragment_history) {
@@ -38,9 +41,10 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
             ContextCompat.getDrawable(requireContext(), R.drawable.bg_history_tab_active)
         binding.tabActive.setTypeface(null, Typeface.BOLD)
 
-        val activeBooking = BookingStore.bookings.firstOrNull { it.status == "Active" }
+        val db = BookingDatabaseHelper(requireContext())
+        val bookings = db.getActiveBookings()
 
-        if (activeBooking == null) {
+        if (bookings.isEmpty()) {
             binding.emptyStateContainer.visibility = View.VISIBLE
             binding.bookingListContainer.visibility = View.GONE
 
@@ -50,18 +54,32 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
             binding.browseServiceButton.visibility = View.VISIBLE
         } else {
             binding.emptyStateContainer.visibility = View.GONE
-            binding.bookingListContainer.visibility = View.VISIBLE
+            binding.bookingScrollView.visibility = View.VISIBLE
 
-            binding.tvServiceName.text = activeBooking.serviceName
-            binding.tvPet.text = "${activeBooking.petName} (${activeBooking.petType})"
-            binding.tvDate.text = "📅  ${activeBooking.startDate} - ${activeBooking.endDate}"
-            binding.tvPrice.text = formatRupiah(activeBooking.totalPrice)
-            binding.tvStatus.text = "Confirmed"
-            binding.btnCancel.visibility = View.VISIBLE
+            binding.bookingListContainer.removeAllViews()
 
-            binding.btnCancel.setOnClickListener {
-                activeBooking?.status = "Cancelled"
-                showCancelled()
+            for (booking in bookings) {
+                val card = layoutInflater.inflate(
+                    R.layout.item_booking,
+                    binding.bookingListContainer,
+                    false
+                )
+
+                val tvServiceName = card.findViewById<TextView>(R.id.tvServiceName)
+                val tvPet = card.findViewById<TextView>(R.id.tvPet)
+                val tvDate = card.findViewById<TextView>(R.id.tvDate)
+                val tvPrice = card.findViewById<TextView>(R.id.tvPrice)
+                val tvStatus = card.findViewById<TextView>(R.id.tvStatus)
+                val btnCancel = card.findViewById<TextView>(R.id.btnCancel)
+
+                tvServiceName.text = booking.serviceName
+                tvPet.text = "${booking.petName} (${booking.petType})"
+                tvDate.text = "📅  ${booking.startDate} - ${booking.endDate}"
+                tvPrice.text = formatRupiah(booking.totalPrice)
+                tvStatus.text = "Confirmed"
+                btnCancel.visibility = View.VISIBLE
+
+                binding.bookingListContainer.addView(card)
             }
         }
     }
@@ -72,7 +90,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
             ContextCompat.getDrawable(requireContext(), R.drawable.bg_history_tab_active)
         binding.tabCompleted.setTypeface(null, Typeface.BOLD)
 
-        binding.bookingListContainer.visibility = View.GONE
+        binding.bookingScrollView.visibility = View.GONE
         binding.emptyStateContainer.visibility = View.VISIBLE
 
         binding.emptyIcon.text = "✅"

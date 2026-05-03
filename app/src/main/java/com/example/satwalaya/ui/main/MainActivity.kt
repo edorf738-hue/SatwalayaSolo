@@ -1,9 +1,10 @@
-package com.example.satwalaya
+package com.example.satwalaya.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.satwalaya.R
 import com.example.satwalaya.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +25,10 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setupWithNavController(navController)
 
         if (intent.getBooleanExtra("openHistory", false)) {
-            navController.navigate(R.id.historyFragment)
+            binding.bottomNavigationView.post {
+                binding.bottomNavigationView.selectedItemId = R.id.historyFragment
+                intent.removeExtra("openHistory")
+            }
         }
     }
 }

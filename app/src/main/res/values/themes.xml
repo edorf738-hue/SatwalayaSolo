@@ -6,10 +6,14 @@
     </style>
 
     <style name="BottomNavActiveIndicator">
-        <item name="android:color">@color/bottom_item_bg</item>
-        <item name="android:width">48dp</item>
-        <item name="android:height">48dp</item>
-        <item name="cornerRadius">16dp</item>
+        <item name="android:color">#FFF1E5</item>
+        <item name="android:width">58dp</item>
+        <item name="android:height">38dp</item>
+        <item name="shapeAppearance">@style/BottomNavIndicatorShape</item>
+    </style>
+
+    <style name="BottomNavIndicatorShape">
+        <item name="cornerSize">18dp</item>
     </style>
 
     <style name="Theme.Satwalaya" parent="Base.Theme.Satwalaya" />

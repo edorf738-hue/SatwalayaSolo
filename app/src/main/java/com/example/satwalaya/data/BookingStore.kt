@@ -1,4 +1,4 @@
-package com.example.satwalaya
+package com.example.satwalaya.data
 
 data class Booking(
     val serviceName: String,

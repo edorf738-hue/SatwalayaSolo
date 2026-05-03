@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2FFF7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:background="#FFFFFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp">
+
+            <TextView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="‹"
+                android:textColor="#06172E"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:text="Pickup Service"
+                android:textColor="#06172E"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_grooming_card"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pet Information"
+                android:textColor="#06172E"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Pet Name *"
+                android:textColor="#06172E"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPetName"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_grooming_input"
+                android:hint="e.g. Buddy"
+                android:paddingStart="14dp"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="Pet Type *"
+                android:textColor="#06172E"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPetType"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_grooming_input"
+                android:hint="e.g. Dog"
+                android:paddingStart="14dp"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_grooming_card"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍  Address Details"
+                android:textColor="#06172E"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Pickup Address *"
+                android:textColor="#06172E"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPickupAddress"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_grooming_input"
+                android:gravity="top"
+                android:hint="Enter pickup address"
+                android:padding="14dp"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="Drop-off Address *"
+                android:textColor="#06172E"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etDropoffAddress"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_grooming_input"
+                android:gravity="top"
+                android:hint="Enter drop-off address"
+                android:padding="14dp"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_grooming_card"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅  Schedule Pickup"
+                android:textColor="#06172E"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Pickup Date"
+                android:textColor="#06172E"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_grooming_card"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="May 2026"
+                    android:textColor="#06172E"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:columnCount="7">
+
+                    <TextView android:text="Su" android:gravity="center" android:layout_width="0dp" android:layout_height="32dp" android:layout_columnWeight="1" />
+                    <TextView android:text="Mo" android:gravity="center" android:layout_width="0dp" android:layout_height="32dp" android:layout_columnWeight="1" />
+                    <TextView android:text="Tu" android:gravity="center" android:layout_width="0dp" android:layout_height="32dp" android:layout_columnWeight="1" />
+                    <TextView android:text="We" android:gravity="center" android:layout_width="0dp" android:layout_height="32dp" android:layout_columnWeight="1" />
+                    <TextView android:text="Th" android:gravity="center" android:layout_width="0dp" android:layout_height="32dp" android:layout_columnWeight="1" />
+                    <TextView android:text="Fr" android:gravity="center" android:layout_width="0dp" android:layout_height="32dp" android:layout_columnWeight="1" />
+                    <TextView android:text="Sa" android:gravity="center" android:layout_width="0dp" android:layout_height="32dp" android:layout_columnWeight="1" />
+
+                    <TextView android:text="26" android:gravity="center" android:textColor="#A8AFBC" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="27" android:gravity="center" android:textColor="#A8AFBC" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="28" android:gravity="center" android:textColor="#A8AFBC" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="29" android:gravity="center" android:textColor="#A8AFBC" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="30" android:gravity="center" android:textColor="#A8AFBC" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="1" android:gravity="center" android:background="@drawable/bg_grooming_input" android:textColor="#A8AFBC" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/tvPickupDateTwo"
+                        android:text="2"
+                        android:gravity="center"
+                        android:textColor="#06172E"
+                        android:layout_width="0dp"
+                        android:layout_height="34dp"
+                        android:layout_columnWeight="1"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <TextView android:text="3" android:gravity="center" android:textColor="#06172E" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="4" android:gravity="center" android:textColor="#06172E" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="5" android:gravity="center" android:textColor="#06172E" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="6" android:gravity="center" android:textColor="#06172E" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="7" android:gravity="center" android:textColor="#06172E" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="8" android:gravity="center" android:textColor="#06172E" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+                    <TextView android:text="9" android:gravity="center" android:textColor="#06172E" android:layout_width="0dp" android:layout_height="34dp" android:layout_columnWeight="1" />
+
+                </GridLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sectionPickupTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pickup Time"
+                    android:textColor="#06172E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:columnCount="3">
+
+                    <TextView
+                        android:id="@+id/tvPickupTimeEight"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_columnWeight="1"
+                        android:background="@drawable/bg_grooming_input"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="08:00" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_columnWeight="1"
+                        android:background="@drawable/bg_grooming_input"
+                        android:gravity="center"
+                        android:text="09:00" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_columnWeight="1"
+                        android:background="@drawable/bg_grooming_input"
+                        android:gravity="center"
+                        android:text="10:00" />
+                </GridLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_grooming_card"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Special Notes (Optional)"
+                android:textColor="#06172E"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etNotes"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_grooming_input"
+                android:gravity="top"
+                android:hint="Any special instructions?"
+                android:padding="14dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/bg_confirm_green"
+            android:alpha="0.5"
+            android:gravity="center"
+            android:text="Confirm Booking"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

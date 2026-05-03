@@ -494,7 +494,7 @@
             android:enabled="false"
             android:alpha="0.55"
             android:gravity="center"
-            android:text="Confirm Booking"
+            android:text="Continue to Payment"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
             android:textStyle="bold" />

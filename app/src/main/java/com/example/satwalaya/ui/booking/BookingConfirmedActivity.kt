@@ -1,8 +1,9 @@
-package com.example.satwalaya
+package com.example.satwalaya.ui.booking
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.satwalaya.ui.main.MainActivity
 import com.example.satwalaya.databinding.ActivityBookingConfirmedBinding
 
 class BookingConfirmedActivity : AppCompatActivity() {

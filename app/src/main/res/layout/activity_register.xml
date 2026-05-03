@@ -63,7 +63,9 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="Full Name" android:textColor="#06172E" android:textSize="13sp" android:textStyle="bold" />
 
-            <EditText android:layout_width="match_parent" android:layout_height="46dp"
+            <EditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent" android:layout_height="46dp"
                 android:layout_marginTop="8dp" android:background="@drawable/bg_auth_input"
                 android:hint="   John Doe" android:textSize="14sp" />
 
@@ -72,7 +74,9 @@
                 android:layout_marginTop="16dp" android:text="Email Address"
                 android:textColor="#06172E" android:textSize="13sp" android:textStyle="bold" />
 
-            <EditText android:layout_width="match_parent" android:layout_height="46dp"
+            <EditText
+                android:id="@+id/etRegEmail"
+                android:layout_width="match_parent" android:layout_height="46dp"
                 android:layout_marginTop="8dp" android:background="@drawable/bg_auth_input"
                 android:hint="   your@email.com" android:inputType="textEmailAddress" android:textSize="14sp" />
 
@@ -81,27 +85,45 @@
                 android:layout_marginTop="16dp" android:text="Phone Number"
                 android:textColor="#06172E" android:textSize="13sp" android:textStyle="bold" />
 
-            <EditText android:layout_width="match_parent" android:layout_height="46dp"
-                android:layout_marginTop="8dp" android:background="@drawable/bg_auth_input"
-                android:hint="   +62 812-3456-7890" android:inputType="phone" android:textSize="14sp" />
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_auth_input"
+                android:hint="   +62 812-3456-7890"
+                android:inputType="phone"
+                android:textSize="14sp" />
 
             <!-- Password -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" android:text="Password"
                 android:textColor="#06172E" android:textSize="13sp" android:textStyle="bold" />
 
-            <EditText android:layout_width="match_parent" android:layout_height="46dp"
-                android:layout_marginTop="8dp" android:background="@drawable/bg_auth_input"
-                android:hint="   ••••••••" android:inputType="textPassword" android:textSize="14sp" />
+            <EditText
+                android:id="@+id/etRegPassword"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_auth_input"
+                android:hint="   ••••••••"
+                android:inputType="textPassword"
+                android:textSize="14sp" />
 
             <!-- Confirm Password -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" android:text="Confirm Password"
                 android:textColor="#06172E" android:textSize="13sp" android:textStyle="bold" />
 
-            <EditText android:layout_width="match_parent" android:layout_height="46dp"
-                android:layout_marginTop="8dp" android:background="@drawable/bg_auth_input"
-                android:hint="   ••••••••" android:inputType="textPassword" android:textSize="14sp" />
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_auth_input"
+                android:hint="   ••••••••"
+                android:inputType="textPassword"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/registerButton"
