@@ -14,5 +14,5 @@ Setiap folder mewakili satu tugas dan berisi source code lengkap dari tugas ters
 | Tugas 3 | [Lihat Repo](https://github.com/edorf738-hue/PemrogramanMobile-Tugas3-241111043.git) |
 | Tugas 4 | [Lihat Repo](https://github.com/edorf738-hue/-PemrogramanMobile-Tugas4-241111043.git) |
 | Tugas 5 | [Lihat Repo](https://github.com/edorf738-hue/PemrogramanMobile-Tugas5-241111043.git) |
-| Tugas 6 | Pakai Aplikasi SATWALAYA, Karena sudah integrasi FireBase |
+| Tugas 6 | [Lihat Repo](https://github.com/edorf738-hue/PemrogramanMobile-Tugas6-241111043.git) |
 | Tugas 7 | [Lihat Repo](https://github.com/edorf738-hue/PemrogramanMobile-Tugas7-241111043.git) |
