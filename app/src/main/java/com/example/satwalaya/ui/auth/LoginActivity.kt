@@ -4,8 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.satwalaya.data.LoginRequest
+import com.example.satwalaya.data.RetrofitClient
 import com.example.satwalaya.databinding.ActivityLoginBinding
 import com.example.satwalaya.ui.main.MainActivity
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
         val prefs = getSharedPreferences("satwalaya_prefs", MODE_PRIVATE)
 
+        // Kalau udah login, langsung masuk
         if (prefs.getBoolean("is_logged_in", false)) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
@@ -34,26 +39,34 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val savedEmail = prefs.getString("user_email", null)
-            val savedPassword = prefs.getString("user_password", null)
+            // Login via API
+            lifecycleScope.launch {
+                try {
+                    val response = RetrofitClient.apiService.login(
+                        request = LoginRequest(username = email, password = password)
+                    )
 
-            if (savedEmail == null || savedPassword == null) {
-                Toast.makeText(this, "Akun tidak ditemukan. Silakan register dulu!", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                    if (response.isSuccessful && response.body()?.success == true) {
+                        val user = response.body()?.data
+
+                        // Simpan session di SharedPreferences
+                        prefs.edit()
+                            .putBoolean("is_logged_in", true)
+                            .putString("logged_in_user", user?.email ?: email)
+                            .putString("user_name", user?.username ?: "Pengguna")
+                            .putInt("user_id", user?.id ?: 0)
+                            .apply()
+
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
+                    } else {
+                        val msg = response.body()?.message ?: "Login gagal"
+                        Toast.makeText(this@LoginActivity, msg, Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this@LoginActivity, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+                }
             }
-
-            if (email != savedEmail || password != savedPassword) {
-                Toast.makeText(this, "Email atau password salah!", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            prefs.edit()
-                .putBoolean("is_logged_in", true)
-                .putString("logged_in_user", email)
-                .apply()
-
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
         }
 
         binding.tvRegister.setOnClickListener {

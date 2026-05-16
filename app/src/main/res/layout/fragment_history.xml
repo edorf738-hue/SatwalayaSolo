@@ -135,25 +135,17 @@
 
     </LinearLayout>
 
-    <!-- Booking List Container -->
-    <ScrollView
-        android:id="@+id/bookingScrollView"
+    <!-- Booking List (RecyclerView) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBookings"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:id="@+id/bookingListContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingStart="24dp"
-            android:paddingEnd="24dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp" />
-
-    </ScrollView>
+        android:clipToPadding="false"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:visibility="gone" />
 
 </LinearLayout>

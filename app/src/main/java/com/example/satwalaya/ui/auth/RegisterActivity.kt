@@ -3,7 +3,11 @@ package com.example.satwalaya.ui.auth
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.satwalaya.data.RegisterRequest
+import com.example.satwalaya.data.RetrofitClient
 import com.example.satwalaya.databinding.ActivityRegisterBinding
+import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -41,24 +45,29 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val prefs = getSharedPreferences("satwalaya_prefs", MODE_PRIVATE)
+            // Register via API
+            lifecycleScope.launch {
+                try {
+                    val response = RetrofitClient.apiService.register(
+                        request = RegisterRequest(
+                            username = name,
+                            password = password,
+                            email = email,
+                            phone = phone
+                        )
+                    )
 
-            val savedEmail = prefs.getString("user_email", null)
-
-            if (email == savedEmail) {
-                Toast.makeText(this, "Email sudah terdaftar!", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                    if (response.isSuccessful && response.body()?.success == true) {
+                        Toast.makeText(this@RegisterActivity, "Registrasi berhasil! Silakan login.", Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        val msg = response.body()?.message ?: "Registrasi gagal"
+                        Toast.makeText(this@RegisterActivity, msg, Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this@RegisterActivity, "Tidak bisa terhubung ke server", Toast.LENGTH_SHORT).show()
+                }
             }
-
-            prefs.edit()
-                .putString("user_name", name)
-                .putString("user_email", email)
-                .putString("user_phone", phone)
-                .putString("user_password", password)
-                .apply()
-
-            Toast.makeText(this, "Registrasi berhasil! Silakan login.", Toast.LENGTH_SHORT).show()
-            finish()
         }
     }
 }

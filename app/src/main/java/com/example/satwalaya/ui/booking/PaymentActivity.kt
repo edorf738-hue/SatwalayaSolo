@@ -1,13 +1,15 @@
 package com.example.satwalaya.ui.booking
 
 import android.content.Intent
-import com.example.satwalaya.data.Booking
-import com.example.satwalaya.data.BookingDatabaseHelper
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.satwalaya.R
+import com.example.satwalaya.data.Booking
+import com.example.satwalaya.data.BookingRepository
 import com.example.satwalaya.databinding.ActivityPaymentBinding
+import kotlinx.coroutines.launch
 
 class PaymentActivity : AppCompatActivity() {
 
@@ -25,14 +27,12 @@ class PaymentActivity : AppCompatActivity() {
 
         binding.cardBri.setOnClickListener {
             selectedPaymentMethod = "BRI"
-
             binding.cardBri.setBackgroundResource(R.drawable.bg_payment_selected)
             binding.cardGopay.setBackgroundResource(R.drawable.bg_grooming_input)
         }
 
         binding.cardGopay.setOnClickListener {
             selectedPaymentMethod = "GoPay"
-
             binding.cardGopay.setBackgroundResource(R.drawable.bg_payment_selected)
             binding.cardBri.setBackgroundResource(R.drawable.bg_grooming_input)
         }
@@ -55,15 +55,17 @@ class PaymentActivity : AppCompatActivity() {
                 status = "Active"
             )
 
-            val db = BookingDatabaseHelper(this)
-            db.insertBooking(booking)
+            val repository = BookingRepository(this)
 
+            lifecycleScope.launch {
+                val success = repository.addBooking(booking)
 
-            val intent = Intent(this, BookingConfirmedActivity::class.java)
-            intent.putExtra("totalPrice", totalPrice)
-            intent.putExtra("paymentMethod", selectedPaymentMethod)
-            startActivity(intent)
-            finish()
+                val intent = Intent(this@PaymentActivity, BookingConfirmedActivity::class.java)
+                intent.putExtra("totalPrice", totalPrice)
+                intent.putExtra("paymentMethod", selectedPaymentMethod)
+                startActivity(intent)
+                finish()
+            }
         }
 
         binding.btnBack.setOnClickListener {
